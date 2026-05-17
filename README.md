@@ -54,6 +54,7 @@ npx playwright install
 ├── playwright.config.ts
 └── README.md
 ```
+
 scripts/crawler.ts — crawler entry point
 src/helper/ — helper utilities for file handling, page interaction, and text validation
 crawler-results/ — generated screenshots and reports
@@ -63,7 +64,11 @@ crawler-results/ — generated screenshots and reports
 
 The crawler has a default `BASE_URL`, so it can be run without creating a `.env` file.
 
-Optionally, create a `.env` file from the `.env.example`, in the project root to override base URL
+Optionally, create a `.env` file from `.env.example` to override the base URL:
+
+```env
+BASE_URL=https://fasting.best.me
+```
 
 ## Run the crawler
 
@@ -86,8 +91,23 @@ Useful checks:
 
 ```bash
 npm run lint
+npm run format:check
+```
+
+Auto-format files:
+
+```bash
 npm run format
 ```
+
+## CI
+
+GitHub Actions currently runs code quality checks only:
+
+- `npm run lint`
+- `npm run format:check`
+
+Playwright tests are not run in CI yet because this mock project is focused on the crawler script, not a finished test suite.
 
 ## Current Behavior
 

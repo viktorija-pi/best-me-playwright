@@ -4,7 +4,7 @@ const answerSelector = 'button, [role="button"], label, input, a[href], .option'
 
 /**
  * Attempts to navigate to the next page by first trying to click a "Continue" button, and if that fails, iterating through potential answer elements on the page.
- * It checks for visibility and enabled state of the elements before interacting with them, and waits for the page to load after each interaction. 
+ * It checks for visibility and enabled state of the elements before interacting with them, and waits for the page to load after each interaction.
  * The function returns true if a navigation to a new page occurs, and false if no further navigation is possible.
  * @param page The Playwright Page object representing the current page state to be navigated.
  * @param seen A Set of strings representing URLs that have already been visited, used to avoid navigating to the same page multiple times.

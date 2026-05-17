@@ -40,7 +40,7 @@ export async function writeValidationResult(outputDir: string, result: unknown) 
 }
 
 /**
- * Saves a screenshot of the current page state to the output directory, organized by flow name and indexed by the order of URLs visited. 
+ * Saves a screenshot of the current page state to the output directory, organized by flow name and indexed by the order of URLs visited.
  * The screenshot file name is generated based on the URL and the starting URL to ensure uniqueness and readability.
  * @param page The Playwright Page object representing the current page state to be captured in the screenshot.
  * @param outputDir The path to the output directory where the screenshot will be saved.
@@ -77,21 +77,14 @@ export async function savePage(page: Page, options: SavePageOptions) {
   options.seen.add(url);
   options.urls.push(url);
 
-  await saveScreenshot(
-    page,
-    options.outputDir,
-    options.flowName,
-    options.urls.length,
-    url,
-    options.startUrl,
-  );
+  await saveScreenshot(page, options.outputDir, options.flowName, options.urls.length, url, options.startUrl);
 
   options.validations.push(validateText(url, await getVisibleText(page)));
 }
 
 /**
- * Generates a file name based on the given URL and the starting URL. 
- * It creates a relative path from the starting URL, replaces non-alphanumeric characters with hyphens, and ensures the file name is in lowercase. 
+ * Generates a file name based on the given URL and the starting URL.
+ * It creates a relative path from the starting URL, replaces non-alphanumeric characters with hyphens, and ensures the file name is in lowercase.
  * If the resulting file name is empty, it defaults to "start".
  * @param url The URL for which to generate the file name, typically the current page URL being processed.
  * @param startUrl The starting URL of the crawl, used to create a relative file name based on the URL structure.
