@@ -1,10 +1,6 @@
 # Best Me Playwright Crawler
 
-Small Playwright crawler script for the questionnaire flow under:
-
-```text
-/ae-en/automatic-qa-test-pipe-13-may-ph/
-```
+Small Playwright crawler script for the questionnaire flow.
 
 The script crawls the configured female and male questionnaire flows, saves one screenshot for each unique visited URL, extracts visible text, and generates a lightweight language/spelling validation report.
 
@@ -47,6 +43,7 @@ npx playwright install
 │       └── textHelper.ts
 ├── .github/
 ├── .env
+├── .env.example
 ├── .gitignore
 ├── .prettierrc
 ├── eslint.config.mjs
@@ -54,10 +51,13 @@ npx playwright install
 ├── playwright.config.ts
 └── README.md
 ```
+
+```text
 scripts/crawler.ts — crawler entry point
 src/helper/ — helper utilities for file handling, page interaction, and text validation
 crawler-results/ — generated screenshots and reports
 .github/ — GitHub Actions workflow configuration
+```
 
 ## Environment Configuration
 
